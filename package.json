@@ -1,0 +1,21 @@
+{
+  "name": "Doppler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "author": "Kavit Shah",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.4.5",
+    "rc-slider": "^3.3.2",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.33",
+    "babel-loader": "^5.3.3",
+    "css-loader": "^0.22.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.3"
+  }
+}
