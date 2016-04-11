@@ -1,6 +1,6 @@
 module.exports = {
 
-	entry: './src/App.jsx',
+	entry: './src/Router.jsx',
 
 	output: {
 		path: './public/assets/js',
@@ -9,8 +9,13 @@ module.exports = {
 
 	module: {
 		loaders: [
-			{ test: /\.js|jsx$/, loader: 'babel', exclude: /node_modules/ },
-			{ test: /\.css$/, loaders: ['style', 'css'] }
+			{
+				test: /\.js|jsx$/, loader: 'babel',
+				exclude: /node_modules/
+			},
+			{
+				test: /\.css$/, loaders: ['style', 'css']
+			}
 		]
 	}
 };

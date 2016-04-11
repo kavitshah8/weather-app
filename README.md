@@ -5,8 +5,7 @@
 #### To run
 
 ```
-webpack -w
-node server.js
+npm start
 ```
 
 #### To see
