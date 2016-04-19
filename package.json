@@ -11,9 +11,9 @@
     "dependencies": {
         "express": "^4.4.5",
         "rc-slider": "^3.3.2",
-        "react": "^0.14.2",
+        "react": "^15.0",
         "react-router": "^2.0.0",
-        "react-dom": "^0.14.2"
+        "react-dom": "^15.0"
     },
     "devDependencies": {
         "babel-core": "^5.8.33",
