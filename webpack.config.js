@@ -1,11 +1,12 @@
 const validator = require('webpack-validator');
+const path = require('path');
 
 const config = {
 
-	entry: './src/Router.jsx',
+	entry: path.join( __dirname, 'src/Router.jsx'),
 
 	output: {
-		path: 'public/assets/js',
+		path: path.join( __dirname, 'public/assets/js'),
 		filename: 'app.js'
 	},
 
