@@ -1,9 +1,11 @@
-module.exports = {
+const validator = require('webpack-validator');
+
+const config = {
 
 	entry: './src/Router.jsx',
 
 	output: {
-		path: './public/assets/js',
+		path: 'public/assets/js',
 		filename: 'app.js'
 	},
 
@@ -19,3 +21,6 @@ module.exports = {
 		]
 	}
 };
+
+module.exports = validator(config);
+

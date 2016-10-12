@@ -1,25 +1,26 @@
 {
-    "name": "Doppler",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "author": "Kavit Shah",
-    "license": "ISC",
-    "scripts": {
-        "start": "webpack -w & node server.js"
-    },
-    "dependencies": {
-        "express": "^4.4.5",
-        "rc-slider": "^3.3.2",
-        "react": "^15.0",
-        "react-router": "^2.0.0",
-        "react-dom": "^15.0"
-    },
-    "devDependencies": {
-        "babel-core": "^5.8.33",
-        "babel-loader": "^5.3.3",
-        "css-loader": "^0.22.0",
-        "style-loader": "^0.13.0",
-        "webpack": "^1.12.3"
-    }
+  "name": "React Project Setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "author": "Kavit Shah",
+  "license": "ISC",
+  "scripts": {
+    "start": "webpack -w & node server.js"
+  },
+  "dependencies": {
+    "express": "^4.4.5",
+    "rc-slider": "^3.3.2",
+    "react": "^15.0",
+    "react-router": "^2.0.0",
+    "react-dom": "^15.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.33",
+    "babel-loader": "^5.3.3",
+    "css-loader": "^0.22.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.3",
+    "webpack-validator": "^2.2.9"
+  }
 }
