@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {Component} from 'react';
 
 class HellowWorld extends Component {
@@ -8,8 +6,9 @@ class HellowWorld extends Component {
         return (
             <div className="mw-100pt">
                 <div className="w-400 mx-auto">
-                    Hello World !
+                    Hello World 
                 </div>
+
                 <img className="w-200 mx-auto" src="/assets/img/react.png"></img>
             </div>
         );
