@@ -1,6 +1,6 @@
 const validator = require('webpack-validator');
 const path = require('path');
-var webpack = require('webpack');
+const webpack = require('webpack');
 
 const config = {
 
@@ -10,11 +10,10 @@ const config = {
 		path.join( __dirname, 'src/Router.jsx')
 	],
 	output: {
-		path: path.join( __dirname, 'public/assets/js'),
+		path: path.join( __dirname, 'public/assets/js/'),
 		filename: 'build.js',
-		publicPath: 'assets/js/',		
+		publicPath: '',		
 	},
-
 	module: {
 		loaders: [
 			{
@@ -28,13 +27,7 @@ const config = {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()
-	],
-	devServer: {
-		inline: true,
-		hot: true,
-		contentBase: './public',
-		port: 3443
-	}
+	]
 };
 
 module.exports = validator(config);
