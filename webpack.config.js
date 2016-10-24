@@ -1,6 +1,7 @@
 const validator = require('webpack-validator');
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
 
@@ -26,6 +27,7 @@ const config = {
 		]
 	},
 	plugins: [
+		new HtmlWebpackPlugin({filename: '../../index.html', template: './src/index.tpl.html'}),
 		new webpack.HotModuleReplacementPlugin()
 	]
 };
