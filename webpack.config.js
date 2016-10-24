@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const config = {
 
 	entry: [
+		'babel-polyfill',
 	    'webpack-dev-server/client?http://localhost:3443',
         'webpack/hot/dev-server',
 		path.join( __dirname, 'src/Router.jsx')
@@ -16,13 +17,8 @@ const config = {
 	},
 	module: {
 		loaders: [
-			{
-				test: /\.js|jsx$/, loaders: ['react-hot', 'babel'],
-				exclude: /node_modules/
-			},
-			{
-				test: /\.css$/, loaders: ['style', 'css']
-			}
+			{ test: /\.js|jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] },
+			{ test: /\.css$/, loaders: ['style', 'css'] }
 		]
 	},
 	plugins: [
