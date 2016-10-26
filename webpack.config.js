@@ -24,7 +24,7 @@ const config = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin({filename: '../../index.html', template: './src/index.tpl.html'}),
+		new HtmlWebpackPlugin({filename: '../index.html', template: './src/index.tpl.html'}),
 		new webpack.HotModuleReplacementPlugin(),
 		new CopyWebpackPlugin([
 			{from: path.join(__dirname, 'src', 'assets', 'images'), to: '../images'}
