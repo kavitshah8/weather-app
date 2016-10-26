@@ -2,6 +2,7 @@ const validator = require('webpack-validator');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
 
@@ -12,7 +13,7 @@ const config = {
 		path.join( __dirname, 'src/Router.jsx')
 	],
 	output: {
-		path: path.join( __dirname, 'public/assets/js/'),
+		path: path.join( __dirname, 'public/js/'),
 		filename: 'build.js',
 		publicPath: '',		
 	},
@@ -24,7 +25,10 @@ const config = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({filename: '../../index.html', template: './src/index.tpl.html'}),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new CopyWebpackPlugin([
+			{from: path.join(__dirname, 'src', 'assets', 'images'), to: '../images'}
+		])
 	]
 };
 

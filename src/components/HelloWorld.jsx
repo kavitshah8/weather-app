@@ -9,7 +9,7 @@ class HellowWorld extends Component {
                     Hello World #
                 </div>
 
-                <img className="w-200 mx-auto" src="/assets/img/react.png"></img>
+                <img className="w-200 mx-auto" src="/images/react.png"></img>
             </div>
         );
     }
