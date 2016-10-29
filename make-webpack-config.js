@@ -16,11 +16,11 @@ module.exports = function (options) {
 		var entry = ['babel-polyfill', entryPoint];
 		if (options.hotReload) {
 			entry = [
-			    'webpack-dev-server/client?http://localhost:3443',
-		        'webpack/hot/dev-server'
+                'webpack-dev-server/client?http://localhost:3443',
+                'webpack/hot/dev-server'
 			].concat(entry);
 		}
-		return entry;	
+		return entry;
 	}
 
 	var config = {
@@ -28,7 +28,7 @@ module.exports = function (options) {
 		output: {
 			path: options.devServer ? path.join( __dirname, 'public', 'js') : 'public',
 			filename: 'build.js',
-			publicPath: '',		
+			publicPath: '',
 		},
 		module: {
 			loaders: [
@@ -43,9 +43,8 @@ module.exports = function (options) {
 			])
 		].concat(plugins),
 	    devtool: options.devtool,
-	    debug: options.debug		
+	    debug: options.debug
 	};
-	
+
 	return validator(config);
 };
-
