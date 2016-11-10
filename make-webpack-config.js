@@ -35,6 +35,7 @@ module.exports = function (options) {
 			publicPath: '',
 		},
 		module: {
+            noParse: /path.join(__dirname, 'node_modules')/,
 			loaders: [
 				{ test: /\.js|jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] },
 				{ test: /\.css$/, loaders: ['style', 'css'] }
