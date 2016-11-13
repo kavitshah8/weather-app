@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import reactSvg from '../assets/images/react.svg';
 
 class HellowWorld extends Component {
 
@@ -8,7 +9,7 @@ class HellowWorld extends Component {
                 <div className="w-400 mx-auto">
                     Hello World ##
                 </div>
-                <img className="w-200 mx-auto" src="/images/react.png"></img>
+                <img className="w-200 mx-auto" src={reactSvg}></img>
             </div>
         );
     }
