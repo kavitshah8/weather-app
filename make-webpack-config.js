@@ -38,7 +38,8 @@ module.exports = function (options) {
             noParse: /path.join(__dirname, 'node_modules')/,
 			loaders: [
 				{ test: /\.js|jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] },
-				{ test: /\.css$/, loaders: ['style', 'css'] }
+				{ test: /\.css$/, loaders: ['style', 'css'] },
+                { test: /\.(jpg|png|svg)$/, exclude: /(node_modules)/, loader: 'url?limit=8192&name=./img/[hash].[ext]'}
 			]
 		},
 		plugins: [
