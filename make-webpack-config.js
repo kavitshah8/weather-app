@@ -2,8 +2,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-var path = require('path');
-var validator = require('webpack-validator');
+var { resolve } = require('path');
 
 module.exports = function (options) {
 	var loaders = [],
@@ -30,16 +29,16 @@ module.exports = function (options) {
             vendor: ['react', 'react-router', 'react-dom']
         },
         output: {
-			path: options.devServer ? path.join( __dirname, 'public', 'js') : 'public',
+			path: options.devServer ? resolve( __dirname, 'public', 'js') : 'public',
 			filename: '[name]-[chunkhash].js',
 			publicPath: '',
 		},
 		module: {
-            noParse: /path.join(__dirname, 'node_modules')/,
-			loaders: [
-				{ test: /\.js|jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] },
-				{ test: /\.css$/, loaders: ['style', 'css'] },
-                { test: /\.(jpg|png|svg)$/, exclude: /(node_modules)/, loader: 'url?limit=8192&name=./img/[hash].[ext]'}
+            noParse: /resolve(__dirname, 'node_modules')/,
+			rules: [
+				{ test: /\.js|jsx$/, exclude: /node_modules/, use: ['react-hot-loader', 'babel-loader'] },
+				{ test: /\.css$/, use: ['style-loader', 'css-loader'] },
+                { test: /\.(jpg|png|svg)$/, exclude: /(node_modules)/, use: 'url-loader?limit=8192&name=./img/[hash].[ext]'}
 			]
 		},
 		plugins: [
@@ -52,18 +51,17 @@ module.exports = function (options) {
             new HtmlWebpackPlugin({
                 filename: 'index.html',
                 // hash: true,
-                template: path.join( __dirname, 'src', 'index.tpl.html'),
+                template: resolve( __dirname, 'src', 'index.tpl.html'),
                 chunks: ['commons', 'app']
             }),
 
             new CopyWebpackPlugin([{
-                from: path.join(__dirname, 'src', 'assets', 'images'),
+                from: resolve(__dirname, 'src', 'assets', 'images'),
                 to: 'images'
             }])
 		].concat(plugins),
-	    devtool: options.devtool,
-	    debug: options.debug
+	    devtool: options.devtool
 	};
 
-	return validator(config);
+    return config;
 };
