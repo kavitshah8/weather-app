@@ -29,8 +29,12 @@ class HellowWorld extends Component {
         fetch(url).then( data => {
             return data.json()
         }).then( response => {
-            let condition = response.query.results.channel.item.condition
-            let units = response.query.results.channel.units
+            let channel = response.query.results.channel
+            let condition = channel.item.condition
+            let forecast = channel.item.forecast
+            let units = channel.units
+            console.log(channel.item.forecast)
+
             this.setState({
                 date: condition.date,
                 temp: condition.temp,
@@ -38,6 +42,7 @@ class HellowWorld extends Component {
                 units: {
                     temp: units.temperature
                 },
+                forecast: forecast,
                 showWeather: true
             })
         }).catch( err => {
@@ -51,12 +56,38 @@ class HellowWorld extends Component {
         })
     }
 
+    renderForecast() {
+        let {temp} = this.state.units
+        return this.state.forecast.map( (el, index) => {
+            return(
+                <div key={index} className="forecast">
+                    <p>
+                        {el.day}
+                        <span>, </span>
+                        {el.date}
+                    </p>
+                    <p> High : {el.high} {temp} </p>
+                    <p> Low : {el.low} {temp} </p>
+                    <p> Weather : {el.text} </p>
+                </div>
+            )
+        })
+
+    }
+
     renderWeather() {
         if (this.state.showWeather) {
             return(
-                <div>
+                <div className="todayWeather">
                     <p>{this.state.date}</p>
-                    <p>{this.state.temp} {this.state.units.temp} {this.state.text}</p>
+                    <p>
+                        {this.state.temp}
+                        <span> </span>
+                        {this.state.units.temp}
+                        <br/>
+                        Weather: {this.state.text}
+                    </p>
+                    {this.renderForecast()}
                 </div>
             )
         }

@@ -8,4 +8,16 @@
 }
 .w-400{width: 400px;}
 .w-200{width: 200px;}
+.h-50{height: 50px;}
 .mw-100pt{max-width: 100%;}
+
+.forecast{
+  width: 300px;
+  border: 1px solid #000;
+  margin: 10px;
+}
+
+.todayWeather{
+  width: 300px;
+  margin: 5px;
+}
