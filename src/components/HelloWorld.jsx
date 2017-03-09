@@ -59,16 +59,19 @@ class HellowWorld extends Component {
     renderForecast() {
         let {temp} = this.state.units
         return this.state.forecast.map( (el, index) => {
+            if (index == 0) return
             return(
-                <div key={index} className="forecast">
-                    <p>
-                        {el.day}
-                        <span>, </span>
-                        {el.date}
-                    </p>
-                    <p> High : {el.high} {temp} </p>
-                    <p> Low : {el.low} {temp} </p>
-                    <p> Weather : {el.text} </p>
+                <div key={index} className="card">
+                    <div className="card-block">
+                        <p>
+                            {el.day}
+                            <span>, </span>
+                            {el.date}
+                        </p>
+                        <p> High : {el.high} {temp} </p>
+                        <p> Low : {el.low} {temp} </p>
+                        <p> Weather : {el.text} </p>
+                    </div>
                 </div>
             )
         })
@@ -78,15 +81,19 @@ class HellowWorld extends Component {
     renderWeather() {
         if (this.state.showWeather) {
             return(
-                <div className="todayWeather">
-                    <p>{this.state.date}</p>
-                    <p>
-                        {this.state.temp}
-                        <span> </span>
-                        {this.state.units.temp}
-                        <br/>
-                        Weather: {this.state.text}
-                    </p>
+                <div>
+                <div className="card">
+                    <div className="card-block">
+                        <p>{this.state.date}</p>
+                        <p>
+                            {this.state.temp}
+                            <span> </span>
+                            {this.state.units.temp}
+                            <br/>
+                            Weather: {this.state.text}
+                        </p>
+                    </div>
+                </div>
                     {this.renderForecast()}
                 </div>
             )
@@ -96,9 +103,9 @@ class HellowWorld extends Component {
     render () {
         const value = this.state.value
         return (
-            <div>
-                <form onSubmit={this.formSubmit}>
-                    <input type="text" value={value} onChange={this.onChange} />
+            <div className="container-fluid">
+                <form className="form-inline" onSubmit={this.formSubmit}>
+                    <input className="form-control" type="text" value={value} onChange={this.onChange} />
                     <button>
                         Submit
                     </button>
